@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="budjet.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>budjet</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="General row">
+        <div class="div1 mt-3 col-md-4">
+            <div class="d-flex border-bottom mb-4 pb-3  divS">
+                <h2 class="">EXPENSE TRACKER</h2>
+                <button  class=" butt1 h-25 border-2 rounded-2 m-1 border-warning p-1  btn btn-outline-warning ">Reset value</button>
+            </div>
+            <div class=" d-flex flex-column divS2 w-75  border border-2 border-success rounded-2 p-1"  >
+                <h6 class="mt-2 ">plese enter your budjet</h6>
+                <input class="form-control w-auto m-1 border-2 rounded-2 border-success" type="number" name="" id="total-amount-button">
+                <button type="submit" id="total-amount" class="w-25 m-1 mb-2 border-2 rounded-2 border-success  p-2 btn btn btn-outline-success">calculate</button>
+            </div>
+            <div class=" d-flex flex-column divS2 w-75  border border-2 border-danger rounded-2 mt-4 p-1  divS3">
+               <h6 class="mt-2">Please Enter Your Expense</h6>
+                <input  class="form-control w-auto m-1 mb-4 border-2 rounded-2 border-danger" type="text" name="" id="product-title">
+                <h6>Please Enter Your Expense Amount</h6>
+                <input  class="form-control w-auto m-1  border-2 rounded-2 border-danger" type="number" name="" id="user-amount">
+                <button id="check-amount" type="submit" class="w-25 m-1 mb-2 border-2 rounded-2 border-danger  p-2 btn btn-outline-danger ">Add expense</button>
+            </div>
+    
+            </div>
+             <div class="div2 col-md-4">
+                   <div class="row d-flex ">
+                      <div class="BUDJET col-md-4">
+                      <h5>BUDJET</h5>
+                      <img src="money-bill-1-solid.svg" alt="" class="w-25 ms-2">
+                      <h3 id="amount"  class="ms-3 pt-2 text-success">0 F</h3>
+                    
+    
+                      </div>
+                      <div class="EXEPENSE col-md-4">
+                      <h5>EXEPENSE</h5>
+                      <img src="credit-card-solid.svg" alt="" class="w-25 ms-3 ">
+                      <h3 id="expenditure-value" class="ms-4 pt-2 text-danger">0 F</h3>
+                      
+                      </div>
+                     <div class="BALANCE col-md-4">
+                     <h5>BALANCE</h5>
+                     <img src="dollar-sign-solid.svg" alt="" class="dollar ms-4 ">
+                     <h3 id="balance-amount"  class="ms-4 pt-2 text-success" >0 F</h3>
+                     </div>
+                     <div class="Title  border-top row pt-5  ">
+                        <div class="div col-md-4"><p>Expense Title</p></div>
+                        <div class="d col-md-4"><p>Expense Value</p></div>
+                        <div class="div col-md-4"> 
+                            <img src="gear-solid.svg" alt="" class="para">
+                        </div>
+    
+                     </div>
+                     <div class="list">
+                        <h3 class="Expense list"></h3>
+                        <div class="list-container" id="list" ></div>
+                     </div>
+                   </div>
+            </div>
+            <div class="div3 col-md-4">
+                <button class="w-75 m-1 mb-2 border-1 rounded-2 border-secondary   btn btn-outline-secondary">History</button>
+                
+                <div id="sup" class="w-75 border border-1 border-success text-center Ajout" >
+                     <h3 class="bg-success text-white ">Ajout de budjet</h3>
+                    <p class="fs-3" >Votre budjet a été ajouté avec success</p>
+
+                </div>
+                <div id="suprim" class="w-75 border border-1 border-success text-center Ajouter" >
+                     <h3 class="bg-success text-white ">Ajout de budjet</h3>
+                    <p class="fs-3" >Votre budjet a été mis a jour</p>
+
+                </div>
+                <div id="suprimer" class="w-75 border border-1 border-success text-center Ajoute" >
+                     <h3 class="bg-success text-white ">Ajout de budjet</h3>
+                    <p class="fs-4" >Le montant de votre depense doit étre positive</p>                   
+                </div>
+                <div id="depenseSup" class="w-75 border border-1 border-success text-center suppression" >
+                     <h3 class="bg-success text-white ">Suppresion de la depense</h3>
+                    <p class="fs-4" >La depense sucre a été supprimé avec success</p>                   
+                </div>
+                <div class=" Close ">
+                    <button class="w-75 m-1 mb-2 border-1 rounded-2 border-danger bg-danger   btn btn-outline-danger text-light ">Close <i class="bi bi-arrow-up"></i> </button>
+                </div>
+                <hr class="mt-5 mb-5">
+                <canvas id="myChart" class="w-75 h-75  "></canvas>
+            </div>
+    
+        </div>
+  </div>
+   <script src="budjet.js"></script> 
+</body>
+</html>

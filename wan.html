@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manipulation d'Inputs</title>
+  <style>
+    .sublist-content {
+      margin-bottom: 10px;
+    }
+
+    .edit, .delete {
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <label for="productTitle">Product Title:</label>
+  <input type="text" id="productTitle">
+  <br>
+
+  <label for="userAmount">Amount:</label>
+  <input type="text" id="userAmount">
+  <br>
+
+  <button id="checkAmountButton">Check Amount</button>
+
+  <div id="List"></div>
+
+  <script>
+    const productTitle = document.getElementById('productTitle');
+    const userAmount = document.getElementById('userAmount');
+    const checkAmountButton = document.getElementById('checkAmountButton');
+    const listContainer = document.getElementById('List');
+
+    listContainer.addEventListener('click', (event) => {
+      const target = event.target;
+      if (target.classList.contains('edit')) {
+        modifyElement(target, true);
+      } else if (target.classList.contains('delete')) {
+        modifyElement(target);
+      }
+    });
+
+    checkAmountButton.addEventListener('click', () => {
+      if (!userAmount.value || !productTitle.value) {
+        alert('Please fill in both fields.');
+        return;
+      }
+
+      const expenditure = parseInt(userAmount.value);
+      const sum = parseInt(expenditureValue.innerText) + expenditure;
+      expenditureValue.innerText = sum;
+
+      const totalBalance = tempAmount - sum;
+      balanceValue.innerText = totalBalance;
+
+      listCreator(productTitle.value, userAmount.value);
+
+      productTitle.value = '';
+      userAmount.value = '';
+    });
+
+    const modifyElement = (element, edit = false) => {
+      const parentDiv = element.parentElement;
+      const parentAmount = parentDiv.querySelector('.amount').innerText;
+
+      if (edit) {
+        const parentText = parentDiv.querySelector('.product').innerText;
+        productTitle.value = parentText;
+        userAmount.value = parentAmount;
+        disableButton(true);
+      }
+
+      balanceValue.innerText = parseInt(currentBalance) + parseInt(parentAmount);
+      expenditureValue.innerText = parseInt(currentExpense) - parseInt(parentAmount);
+      parentDiv.remove();
+    };
+
+    const listCreator = (expenseName, expenseValue) => {
+      const sublistContent = document.createElement('div');
+      sublistContent.classList.add('sublist-content');
+      sublistContent.innerHTML = `
+        <p class="product">${expenseName}</p>
+        <p class="amount">${expenseValue}</p>
+        <button class="fa-solid fa-pen-to-square edit"></button>
+        <button class="fa-solid fa-trash-can delete"></button>`;
+
+      listContainer.appendChild(sublistContent);
+    };
+  </script>
+</body>
+</html>

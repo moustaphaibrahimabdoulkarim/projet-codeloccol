@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.dollar{
+    width: 30px;
+}
+.para{
+    width: 30px;
+}
+.Ajout{
+    display: none;
+}
+.Ajouter{
+    display: none;
+}
+.Ajoute{
+    display: none;
+}
+.Close button:hover{
+ background-color: rgb(145, 4, 4) !important;
+}
+.Close{
+    display: none;
+}
+.suppression{
+    display: none;
+}
